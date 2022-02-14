@@ -1,0 +1,53 @@
+.Card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 15px;
+  width: 210px;
+  height: 250px;
+  background-color: #212121;
+  box-shadow: 15px 15px 30px #191919, -15px -15px 30px #292929;
+  transition: border-radius cubic-bezier(0.075, 0.82, 0.165, 1) 1s,
+    transform cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
+}
+
+.Card:hover {
+  border-bottom-right-radius: 50px;
+  border-top-left-radius: 50px;
+  transform: scale(1.05);
+}
+
+.Card img {
+  margin-top: 15px;
+  width: 150px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 10%;
+}
+.Card img:hover {
+  filter: grayscale(35%);
+}
+
+.Link {
+  text-decoration: none;
+}
+
+.name {
+  margin-top: 10px;
+  color: white;
+  text-transform: uppercase;
+}
+
+.name:hover {
+  text-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+}
+
+.continent {
+  margin-top: 15px;
+  color: white;
+}
+
+.continent:hover {
+  text-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+}

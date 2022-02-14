@@ -1,0 +1,36 @@
+.paging {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.numbers {
+  list-style: none;
+}
+
+.button {
+  border-radius: 30px;
+  font-family: "Lobster", cursive;
+  font-family: "Raleway", sans-serif;
+  width: 30px;
+  height: 30px;
+  border: none;
+  color: #e8e8e8;
+  padding: 01px;
+  margin: 02px;
+  font-size: 16px;
+  text-transform: uppercase;
+  /* border-radius: 45px; */
+  background: #090909;
+  border: 1px solid #e8e8e8;
+  transition: all 0.3s;
+  box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #e8e8e8;
+  color: #090909;
+}
