@@ -88,14 +88,14 @@ const Home = () => {
         </div>
       </div>
       <div>
+        <CountriesCards currentCountries={currentCountries} />
+      </div>
+      <div>
         <Paging
           countriesPerPage={countriesPerPage}
           loadedCountries={loadedCountries.length}
           paging={paging}
         />
-      </div>
-      <div>
-        <CountriesCards currentCountries={currentCountries} />
       </div>
     </div>
   );

@@ -18,7 +18,7 @@ const CountriesCards = ({ currentCountries }) => {
           );
         })
       ) : (
-        <h1>Country Not Found...</h1>
+        <h1 className={Styles.title}>Country Not Found...</h1>
       )}
     </div>
   );

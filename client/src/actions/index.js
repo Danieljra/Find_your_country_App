@@ -35,7 +35,7 @@ export const filterCountriesByContinenet = (nameOfContinent) => {
 export const filterCountriesByPopulation = (payload) => {
   return {
     type: FILTER_BY_POPULATION,
-    payload: payload,
+    payload,
   };
 };
 

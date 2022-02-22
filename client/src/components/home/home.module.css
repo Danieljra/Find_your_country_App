@@ -9,13 +9,17 @@
 }
 
 .title {
+  color: rgb(0, 0, 0);
   font-size: 45px;
   margin-top: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 55px;
+  text-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
 }
 
 .title2 {
-  font-size: 30px;
+  font-size: 45px;
+  color: rgb(0, 0, 0);
+  text-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
 }
 
 .filters {

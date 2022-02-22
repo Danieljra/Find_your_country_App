@@ -6,6 +6,11 @@
   height: 100vw;
 }
 
+.error {
+  color: red;
+  font-size: 20px;
+}
+
 .deleteCountries h5 {
   color: #ffffff;
 }
@@ -50,7 +55,7 @@ label {
   padding: 0.7em 1.7em;
   margin: 10px;
   font-size: 16px;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   border-radius: 0.5em;
   background: #e8e8e8;
   border: 1px solid #e8e8e8;

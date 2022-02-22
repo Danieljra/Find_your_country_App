@@ -14,16 +14,19 @@ const CreateActivity = () => {
     name: "",
     dificulty: "",
     duration: "",
-    season: ["Verano", "Otoño", "Invierno", "Primavera"],
+    season: "",
     countryId: [],
   });
 
-  const validateDuration = (value) => {
+  const validate = (value) => {
     let ExpRegLetrasEspacio = "^[ a-zA-ZñÑáéíóúÁÉÍÓÚ]+$";
     let errors = {};
 
     if (value.name.match(ExpRegLetrasEspacio) == null) {
       errors.name = "Name of the activity cannot contain numbers or symbols!";
+    }
+    if (value.duration < 15 || value.duration > 240) {
+      errors.duration = "The activity can only last from 15min to 240min ";
     }
     return errors;
   };
@@ -38,7 +41,7 @@ const CreateActivity = () => {
       [e.target.name]: e.target.value,
     });
     setErrorMessage(
-      validateDuration({
+      validate({
         ...newActivity,
         [e.target.name]: e.target.value,
       })
@@ -47,21 +50,25 @@ const CreateActivity = () => {
   };
 
   const handleSelectChange = (e) => {
-    setNewActivity({
-      ...newActivity,
-      countryId: [...newActivity.countryId, e.target.value],
-    });
+    newActivity.countryId.includes(e.target.value)
+      ? setNewActivity({
+          ...newActivity,
+        })
+      : setNewActivity({
+          ...newActivity,
+          countryId: [...newActivity.countryId, e.target.value],
+        });
   };
 
   const handleformSubmit = (e) => {
     e.preventDefault();
     dispatch(postNewActivity(newActivity));
-    alert("A new activity has been created!");
+    alert("A new tourist activity has been successfully created!");
     setNewActivity({
       name: "",
       dificulty: "",
       duration: "",
-      season: ["Verano", "Otoño", "Invierno", "Primavera"],
+      season: "",
       countryId: [],
     });
   };
@@ -93,12 +100,14 @@ const CreateActivity = () => {
             type="submit"
             value="Submit"
             disabled={
-              // el boton queda deshabilitado si alhuno de los inputs no estan llenos.
+              // el boton queda deshabilitado si alguno de los inputs no estan llenos o el estado econ el error esta lleno.
               !newActivity.name ||
               !newActivity.duration ||
               !newActivity.dificulty ||
               !newActivity.season ||
-              !newActivity.countryId
+              !newActivity.countryId ||
+              errorMessage.name ||
+              errorMessage.duration
             }
           >
             <span class={Styles.shadow2}></span>
@@ -120,7 +129,7 @@ const CreateActivity = () => {
             placeholder="Ej: Sky"
             onChange={(e) => handleInputChange(e)}
           />
-          {errorMessage && <p>{errorMessage.name}</p>}
+          {errorMessage && <p className={Styles.error}>{errorMessage.name}</p>}
         </div>
 
         <div className={Styles.inputDificulty}>
@@ -141,13 +150,14 @@ const CreateActivity = () => {
           <label>Duration in minutes: </label>
           <input
             value={newActivity.duration}
-            min="15"
-            max="120"
             type="number"
             name="duration"
             placeholder="Ej: 35min"
             onChange={(e) => handleInputChange(e)}
           />
+          {errorMessage && (
+            <p className={Styles.error}>{errorMessage.duration}</p>
+          )}
         </div>
 
         <div className={Styles.inputSeason}>
