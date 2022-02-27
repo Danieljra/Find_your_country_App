@@ -63,7 +63,7 @@ const DetailCountry = () => {
           </div>
         </div>
       ) : (
-        <h3>Cargando...</h3>
+        <h3 className={Styles.cargando}>Cargando...</h3>
       )}
     </div>
   );
