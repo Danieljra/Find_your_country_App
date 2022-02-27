@@ -143,3 +143,7 @@ button:active .shadow {
 button:focus:not(:focus-visible) {
   outline: none;
 }
+
+.cargando {
+  font-size: 100px;
+}
